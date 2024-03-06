@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedir Perdón</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    h1 {
+        color: #333;
+    }
+    #yesButton, #noButton {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 5px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    #noButton {
+        background-color: #f44336;
+    }
+
+    #overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    #thankYouMessage {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        padding-top: 200px;
+        z-index: 3;
+    }
+</style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <button id="yesButton" onclick="showMessage()">Sí</button>
+    <button id="noButton" onclick="moveButton()">No</button>
+
+    <div id="overlay"></div>
+    <div id="thankYouMessage">Gracias mi amor, Te amo mucho❤️.</div>
+
+    <script>
+        function showMessage() {
+            var overlay = document.getElementById("overlay");
+            var thankYouMessage = document.getElementById("thankYouMessage");
+
+            overlay.style.display = "block";
+            thankYouMessage.style.display = "block";
+        }
+
+        function moveButton() {
+            var button = document.getElementById("noButton");
+            var newX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+            var newY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+            button.style.position = "absolute";
+            button.style.left = newX + "px";
+            button.style.top = newY + "px";
+        }
+    </script>
+</body>
+</html>
